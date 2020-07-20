@@ -39,4 +39,4 @@ https://github.com/jhao104/proxy_pool
 
 
   [1]: http://qiniu.safe6.cn/ipPool.jpg
-  [2]: http://qiniu.safe6.cn/qr2.png
+  [2]: http://qiniu.safe6.cn/qrcode.jpg
