@@ -31,7 +31,7 @@ java -jar proxyServer.jar 9090
 公众号：safe6安全的成长日记        
 项目地址：     
 整合好的我已经打包放公众号，需要的自取(回复：ip代理池)    
-<img src="http://qiniu.safe6.cn/qr2.png" alt="safe6" align="bottom" />
+![safe6][2]
 
 ## 感谢开源项目
 https://github.com/casparhuan/proxyServer             
@@ -39,3 +39,4 @@ https://github.com/jhao104/proxy_pool
 
 
   [1]: http://qiniu.safe6.cn/ipPool.jpg
+  [2]: http://qiniu.safe6.cn/qr2.png
