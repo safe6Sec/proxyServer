@@ -77,12 +77,12 @@ public class ProxyTask implements Callable<Void> {
                 osClient.write((AUTHORED + "\r\n\r\n").getBytes());
                 osClient.flush();
             }
-            /*else if(httpHeader.METHOD_GET.equals(httpHeader.getMethod().trim().toUpperCase())){
+            else if(HttpHeader.METHOD_GET.equals(httpHeader.getMethod().trim().toUpperCase())){
                 //发送报文的请求头还有header
                 osTarget.write(httpHeader.getHttpHedaer().getBytes());
-//                osTarget.write("\r\n".getBytes());
+                osTarget.write("\r\n".getBytes());
                 osTarget.flush();
-            }*/
+            }
             else {
                 osTarget.write(httpHeader.getHttpHedaer().getBytes());
                 osTarget.flush();
@@ -138,48 +138,41 @@ public class ProxyTask implements Callable<Void> {
             logger.error(e.getMessage());
             return null;
         } finally {
-            logger.debug("关闭socket");
             //关闭流和socket
             if (osClient != null) {
                 try {
-                    logger.debug("关闭osClient");
                     osClient.close();
-                } catch (IOException e1) {
+                } catch (IOException ignored) {
                 }
             }
             if (isClient != null) {
                 try {
-                    logger.debug("关闭isClient");
                     isClient.close();
-                } catch (IOException e1) {
+                } catch (IOException ignored) {
                 }
             }
             if (!inSocket.isClosed()) {
                 try {
-                    logger.debug("关闭inSocket");
                     inSocket.close();
-                } catch (IOException e1) {
+                } catch (IOException ignored) {
                 }
             }
             if (isTarget != null) {
                 try {
-                    logger.debug("关闭isTarget");
                     isTarget.close();
-                } catch (IOException e1) {
+                } catch (IOException ignored) {
                 }
             }
             if (osTarget != null) {
                 try {
-                    logger.debug("关闭osTarget");
                     osTarget.close();
-                } catch (IOException e1) {
+                } catch (IOException ignored) {
                 }
             }
             if (!targetSocket.isClosed()) {
                 try {
-                    logger.debug("关闭targetSocket");
                     targetSocket.close();
-                } catch (IOException e1) {
+                } catch (IOException ignored) {
                 }
             }
         }
@@ -211,7 +204,7 @@ public class ProxyTask implements Callable<Void> {
      */
     private void readFromTargetToClient(InputStream isTarget, OutputStream osClient) throws IOException {
 //        readDataToOther(isTarget,osClient);
-        byte[] buffer = new byte[1024 * 4];
+        byte[] buffer = new byte[1024 * 8];
         int len = 0;
         logger.debug("available:" + isTarget.available());
         try {
