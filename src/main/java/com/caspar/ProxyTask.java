@@ -63,9 +63,10 @@ public class ProxyTask implements Callable<Void> {
             //socket = new Socket(proxy);
             //socket.connect(new InetSocketAddress(ip, port));//服务器的ip及地址
             //连接目标网站
-            //targetSocket = new Socket(httpHeader.getHost(), httpHeader.getPort());
-            targetSocket = new Socket(ProxyUtil.getProxy());
-            targetSocket.connect(new InetSocketAddress(httpHeader.getHost(), httpHeader.getPort()));
+            targetSocket = new Socket(httpHeader.getHost(), httpHeader.getPort());
+            //targetSocket = new Socket(ProxyUtil.getProxy());
+            //targetSocket = new Socket();
+            //targetSocket.connect(new InetSocketAddress(httpHeader.getHost(), httpHeader.getPort()));
             targetSocket.setSoTimeout(5000);
             targetSocket.setKeepAlive(true);
             isTarget = targetSocket.getInputStream();
